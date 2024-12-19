@@ -1,6 +1,6 @@
-const KEY = "";
+const KEY = "yum-BAPUdN5hTPLuk3iN";
 const url = "https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/";
-const ID = "";
+const ID = "b1on";
 
 //hämtar menyn som lista
 async function getMenu() {

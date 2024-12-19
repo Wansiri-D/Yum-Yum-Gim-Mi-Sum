@@ -2,6 +2,7 @@ const receiptItems = document.querySelector(".receipt-items");
 const receiptSum = document.querySelector("#receipt-sum");
 const receiptId = document.querySelector("#receipt-id");
 
+//Renderar kvitto
 export function renderReceipt(receipt) {
     receiptItems.innerHTML = "";
     receipt.items.forEach((item) => {

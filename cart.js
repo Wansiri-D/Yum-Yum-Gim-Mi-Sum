@@ -10,6 +10,7 @@ const buyButton = document.querySelector("#buy-button");
 let cart = [];
 let cartToSend = [];
 
+//Rendera varukorgen
 export function renderCart(cart, cartToSend) {
     cartItems.innerHTML = "";
     let total = [];
@@ -54,6 +55,8 @@ export function renderCart(cart, cartToSend) {
 
     cartSum.innerText = total.reduce((a, b) => a + b, 0) + " SEK";
 }
+
+//Knappar för mängd
 
 function removeItem(item) {
     const index = cartToSend.indexOf(item.id);
