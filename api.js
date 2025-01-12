@@ -2,7 +2,6 @@ const KEY = "yum-BAPUdN5hTPLuk3iN";
 const url = "https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/";
 const ID = "b1on";
 
-//hämtar menyn som lista
 async function getMenu() {
     const options = {
         method: "GET",
@@ -13,14 +12,12 @@ async function getMenu() {
     try {
         const response = await fetch(url + "menu", options);
         const data = await response.json();
-        //returnerar menyn dirr till .items
         return data.items;
-        //vet inte hur error funkar, LÄS PÅ OM DET
     } catch (error) {
         console.log("Fel:", response.status, error);
     }
 }
-//skicka cart till api
+
 async function sendCart(cart) {
     const bodyToSend = { items: cart };
 
