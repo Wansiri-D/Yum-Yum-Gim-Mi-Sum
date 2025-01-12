@@ -10,6 +10,7 @@ async function getMenu() {
         },
     };
     try {
+        // ใช้ fetch เพื่อร้องขอข้อมูลเมนูจาก URL (เพิ่ม "menu" ต่อท้าย URL หลัก) พร้อมตัวเลือกที่กำหนด
         const response = await fetch(url + "menu", options);
         const data = await response.json();
         return data.items;
@@ -32,9 +33,10 @@ async function sendCart(cart) {
     try {
         const response = await fetch(url + ID + "/orders", options);
 
+        // ตรวจสอบว่าการร้องขอสำเร็จหรือไม่
         if (!response.ok) {
             console.error(
-                `Fel vid anrop: ${response.status} ${response.statusText}`
+                `Fel vid anrop: ${response.status} ${response.statusText}` // หากไม่สำเร็จให้พิมพ์ข้อผิดพลาดพร้อมสถานะและข้อความ
             );
             return;
         }
@@ -48,6 +50,7 @@ async function sendCart(cart) {
     }
 }
 
+// ดึงใบเสร็จ (receipt) โดยใช้หมายเลขคำสั่งซื้อ (orderId)
 async function getReceipt(orderId) {
     const options = {
         method: "GET",
@@ -56,8 +59,8 @@ async function getReceipt(orderId) {
         },
     };
     try {
-        const response = await fetch(url + "receipts/" + orderId, options);
-        const data = await response.json();
+        const response = await fetch(url + "receipts/" + orderId, options); // ใช้ fetch เพื่อดึงข้อมูลใบเสร็จจาก URL ที่มี orderId ต่อท้าย
+        const data = await response.json(); // แปลงข้อมูลตอบกลับมาเป็น JSON
         console.log(data);
         return data.receipt;
     } catch (error) {
