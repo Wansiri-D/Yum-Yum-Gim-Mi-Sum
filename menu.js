@@ -19,7 +19,6 @@ export function renderMenu(menu) {
     console.log(menu);
     console.log(wontons);
 
-    //renderar wontons
     wontons.forEach((wonton) => {
         const wontonContainer = document.createElement("div");
         const wontonTilteContainer = document.createElement("div");
@@ -43,7 +42,7 @@ export function renderMenu(menu) {
             addToCart(wonton, wontonContainer)
         );
     });
-    //renderar dips
+    
     const dipContainer = document.createElement("div");
     const dipTitleContainer = document.createElement("div");
     const dipTitle = document.createElement("h3");
@@ -69,7 +68,6 @@ export function renderMenu(menu) {
         dipName.addEventListener("click", () => addToCart(dip, dipName));
     });
 
-    //renderar drinks
 
     const drinkContainer = document.createElement("div");
     const drinkTitleContainer = document.createElement("div");
@@ -97,7 +95,6 @@ export function renderMenu(menu) {
     });
 }
 
-//Lägg till i varukorgen
 function addToCart(item, element) {
     const existingItem = cart.find((itemInCart) => itemInCart.id === item.id);
     if (existingItem) {
@@ -113,7 +110,6 @@ function addToCart(item, element) {
     console.log(cartToSend);
 }
 
-//Uppdaterar den röda cirkeln med antal i varukorgen
 export function updateNotification() {
     notification.innerText = cartToSend.length;
     if (cartToSend.length === 0) {
